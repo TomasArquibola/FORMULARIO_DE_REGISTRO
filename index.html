@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro LNR</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <form id="registroForm">
+    <h1>Registro - Liga Nacional de Robótica</h1>
+
+    <!-- Datos del equipo -->
+    <label for="nombreEquipo">Nombre del equipo</label>
+    <input type="text" id="nombreEquipo" maxlength="30" required />
+
+    <label for="escuela">Escuela / Institución</label>
+    <select id="escuela" required>
+      <option value="">-- Seleccioná una opción --</option>
+      <option value="EEST N°1">EEST N°1</option>
+      <option value="Técnica N°2">Técnica N°2</option>
+      <option value="Otro">Otro</option>
+    </select>
+
+    <label for="email">Email del responsable</label>
+    <input type="email" id="email" required />
+
+    <!-- Foto de perfil -->
+    <label for="fotoPerfil">Foto de perfil del equipo</label>
+    <input type="file" id="fotoPerfil" accept=".jpg,.jpeg,.png" required />
+    <img id="previewFoto" style="display: none;" alt="Previsualización" />
+
+    <!-- Categorías -->
+    <fieldset>
+      <legend>Categorías de competencia</legend>
+      <div class="categorias">
+        <label><input type="checkbox" name="categoria" value="sumo" /> Sumo</label>
+        <label><input type="checkbox" name="categoria" value="minisumo" /> Minisumo</label>
+        <label><input type="checkbox" name="categoria" value="carrera" /> Carrera 🏎️</label>
+        <label><input type="checkbox" name="categoria" value="futbol" /> Fútbol ⚽</label>
+        <label><input type="checkbox" name="categoria" value="laberinto" /> Laberinto</label>
+        <label><input type="checkbox" name="categoria" value="microsumo" /> Microsumo</label>
+      </div>
+    </fieldset>
+
+    <!-- Documentos -->
+    <label for="disenoRobot">Diseño del robot (PDF/imagen)</label>
+    <input type="file" id="disenoRobot" accept=".pdf,.jpg,.jpeg,.png" />
+
+    <label for="certificadoSeguridad">Certificado de seguridad (obligatorio si hay sumo/minisumo)</label>
+    <input type="file" id="certificadoSeguridad" accept=".pdf,.jpg,.jpeg,.png" />
+
+    <!-- Reglas -->
+    <label>
+      <input type="checkbox" id="aceptoReglas" required />
+      Acepto las reglas del campeonato LNR
+    </label>
+
+    <!-- Botones -->
+    <button type="submit" id="btnRegistrar" disabled>Registrar equipo</button>
+    <button type="button" onclick="resetearFormulario()">Borrar formulario</button>
+  </form>
+  <!-- Botón de modo claro/oscuro -->
+<button id="modoToggle" title="Cambiar modo">🌓</button>
+</body>
+</html>

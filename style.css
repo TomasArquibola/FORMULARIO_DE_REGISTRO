@@ -1,0 +1,190 @@
+:root {
+    /* Modo oscuro (por defecto) */
+    --fondo: #0d0d1a;
+    --texto: #ffffff;
+    --form-bg: #121222;
+    --azul-neon: #00f0ff;
+    --azul-intenso: #00a2ff;
+    --azul-fuerte: #0066ff;
+    --rojo-robotico: #ff3e3e;
+    --input-bg: #0d0d1a;
+    --borde: var(--azul-neon);
+  }
+  
+  /* Modo claro */
+  body.light {
+    --fondo: #f5f7fa;
+    --texto: #1a1a1a;
+    --form-bg: #ffffff;
+    --azul-neon: #007acc;
+    --azul-intenso: #3399ff;
+    --azul-fuerte: #0066cc;
+    --rojo-robotico: #e53935;
+    --input-bg: #f9f9fb;
+    --borde: #cccccc;
+  }
+  
+  body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--form-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid var(--borde);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  h1 {
+    text-align: center;
+    color: var(--azul-neon);
+    margin-bottom: 25px;
+  }
+  
+  /* Inputs, selects, etc. */
+  input, select, textarea, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 2px solid var(--borde);
+    background-color: var(--input-bg);
+    color: var(--texto);
+    transition: all 0.4s ease;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 10px var(--azul-neon),
+                0 0 20px var(--azul-intenso),
+                0 0 30px var(--azul-fuerte);
+    border-color: var(--azul-neon);
+    transform: scale(1.02);
+    outline: none;
+  }
+  
+  /* Categorías */
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  
+  .categorias label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    color: var(--texto);
+  }
+  
+  .categorias input[type="checkbox"]:checked {
+    box-shadow: 0 0 15px var(--azul-neon);
+    outline: 2px solid var(--azul-neon);
+  }
+  
+  .categorias input[type="checkbox"] {
+    transform: scale(1.2);
+  }
+  
+  /* Imagen previsualizada */
+  #previewFoto {
+    max-width: 120px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--azul-neon);
+    display: none;
+  }
+  
+  /* Botón de enviar con glowing */
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 5px var(--azul-neon); }
+    50% { box-shadow: 0 0 20px var(--azul-neon), 0 0 30px var(--azul-intenso); }
+    100% { box-shadow: 0 0 5px var(--azul-neon); }
+  }
+  
+  button[type="submit"] {
+    background-color: var(--azul-neon);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    animation: pulse-glow 2s infinite;
+    border: none;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #555;
+    color: #ccc;
+    animation: none;
+    cursor: not-allowed;
+  }
+  
+  button[type="button"] {
+    background-color: transparent;
+    color: var(--azul-neon);
+    border: 2px solid var(--azul-neon);
+    cursor: pointer;
+  }
+  
+  /* Botón de modo claro/oscuro */
+  #modoToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+  
+  #modoToggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  
+  #modoToggle:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+    .categorias {
+      grid-template-columns: 1fr;
+    }
+  
+    form {
+      padding: 20px;
+    }
+  }
+  
